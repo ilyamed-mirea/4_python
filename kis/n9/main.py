@@ -1,3 +1,50 @@
+def remove_duplicates_rows(x):
+    output = []
+    control = set()
+    for row in x:
+        if row[0] in control:
+            continue
+        control.add(row[0])
+        output.append(row)
+    return output
+
+
+def remove_empty(x):
+    res = []
+    for row in x:
+        if row[0] is None:
+            continue
+        temp = []
+        for cell in row:
+            if cell is None:
+                continue
+            temp.append(cell)
+        res.append(temp)
+    return res
+
+
+def formater(res):
+    for row in res:
+        row[0] = row[0].split()[1]
+        row[1] = row[1].replace('/', '.')[2:]
+        row[2] = row[2].replace('N', '0').replace('Y', '1')
+        s = row[3]
+        row[3] = s[3:6] + '-' + s[6:]
+    return res
+
+    for row_index, row in enumerate(table):
+        for col_index, cell in enumerate(row):
+            # print(cell)
+            if cell[:2:] == "+7":  # Исправление номеров
+                table[row_index][col_index] = cell[2::]
+            elif cell == "Да" or cell == "Нет":  # замена "Да" "Нет"
+                table[row_index][col_index] = "1" if cell == "Да" else "0"
+            elif "[at]" in cell:  # удаление символов "[at]"
+                table[row_index][col_index] = cell[:cell.index('['):]
+    # print('formatted', table)
+    table.insert(0, [i + 1 for i in range(len(table))])
+
+
 def main(table):
     # 1. Удалить дубли среди столбцов,
     # оставив только первое вхождение повторяющегося столбца в таблицу.
@@ -21,24 +68,8 @@ def main(table):
 
     # 3. Удалить дубли среди строк,
     # оставив только первое вхождение повторяющейся строки в таблицу.
-    # unique_rows = []
-    # for row in table:
-    #     if row not in unique_rows:
-    #         unique_rows.append(row)
-    # table = unique_rows
 
     # 4. Преобразовать содержимое ячеек по примерам.
-    for row_index, row in enumerate(table):
-        for col_index, cell in enumerate(row):
-            # print(cell)
-            if cell[:2:] == "+7":  # Исправление номеров
-                table[row_index][col_index] = cell[2::]
-            elif cell == "Да" or cell == "Нет":  # замена "Да" "Нет"
-                table[row_index][col_index] = "1" if cell == "Да" else "0"
-            elif "[at]" in cell:  # удаление символов "[at]"
-                table[row_index][col_index] = cell[:cell.index('['):]
-    # print('formatted', table)
-    table.insert(0, [i + 1 for i in range(len(table))])
 
     # 5. Транспонировать таблицу.
     # table = [list(x) for x in zip(*table)]
