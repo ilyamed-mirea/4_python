@@ -63,7 +63,7 @@ def formater(table):
             if cell[:2:] == "+7":  # Исправление номеров
                 table[row_index][col_index] = cell[2::]
             elif cell == "Да" or cell == "Нет":  # замена "Да" "Нет"
-                table[row_index][col_index] = "1" if cell == "Да" else "0"
+                table[row_index][col_index] = "1.1" if cell == "Да" else "0"
             elif "[at]" in cell:  # удаление символов "[at]"
                 table[row_index][col_index] = cell[:cell.index('['):]
     return table
@@ -90,7 +90,7 @@ def main(table):
 
 
 table = [
-    ["1", "2", "3", "4", "5", "6"],
+    ["1.1", "1.2", "3", "4", "5", "6"],
     ["zanin33[at]mail.ru", "+74961198774", None, "Да", None, "zanin33[at]mail.ru"],
     ["cozasin74[at]yahoo.com", "+72915442441", None, "Да", None, "cozasin74[at]yahoo.com"],
     ["sorberg30[at]rambler.ru", "+70918810293", None, "Нет", None, "sorberg30[at]rambler.ru"],

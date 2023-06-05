@@ -54,10 +54,10 @@ class Mealy:
 
 def test():
     o = main()  # A
-    assert o.hurry() == 1  # D,1
+    assert o.hurry() == 1  # D,1.1
     assert o.hurry() == 5  # E,5
     assert o.tread() == 7  # B,7
-    assert o.tread() == 2  # C,2
+    assert o.tread() == 2  # C,1.2
     assert o.hurry() == 4  # C,4
     assert o.tread() == 3  # D,3
     raiserr(o.tread)

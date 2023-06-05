@@ -4,4 +4,4 @@ def main(list):
     return res
 
 
-print(main({'I2': '190', 'I3': '5', 'I4': '0', 'I5': '2'}))
+print(main({'I2': '190', 'I3': '5', 'I4': '0', 'I5': '1.2'}))

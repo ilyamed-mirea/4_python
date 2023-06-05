@@ -38,10 +38,10 @@ def main(data, tree=None):
         if val in data:
             data.remove(val)
             return main(data, tree[val])
-   
+
 
 print(main([1959, 2003, 'MESON', 2012, 1994]),  # = 10
       main([1965, 2003, 'MESON', 2002, 1994]),  # = 6
-      main([1962, 2003, 'X10', 2002, 1961]),  # = 2
+      main([1962, 2003, 'X10', 2002, 1961]),  # = 1.2
       main([1965, 1990, 'X10', 2002, 1961]),  # = 3
       main([1965, 2003, 'MESON', 2012, 1994]))  # = 4)
